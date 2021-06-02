@@ -7,7 +7,7 @@ import { SearchService } from './app/search.service';
 @Component({
   selector: 'app-list-names',
   template: `
-    <div *ngIf="names.length">
+    <div *ngIf="listOfNames.length" class="child">
       <h2>List of names</h2>
       <ul>
         <li *ngFor="let whatever of names">{{ whatever }}</li>
@@ -24,10 +24,12 @@ export class ListNamesComponent {
   selector: 'app-comp-a', // <app-comp-a></app-comp-a>
   providers: [{ provide: SearchService, useClass: SearchService }],
   template: `
-    <h1>Hello {{ name }}</h1>
-    <input [(ngModel)]="name" (input)="search()" />
-    <!-- <button (click)="search()">Search name</button> -->
-    <app-list-names [listOfNames]="names"></app-list-names>
+    <div class="parent">
+      <h1>Hello {{ name }}</h1>
+      <input [(ngModel)]="name" (input)="search()" />
+      <!-- <button (click)="search()">Search name</button> -->
+      <app-list-names [listOfNames]="names"></app-list-names>
+    </div>
   `,
 })
 export class CompAComponent {

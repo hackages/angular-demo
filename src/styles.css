@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.parent {
+  border: 1px solid red;
+}
+
+.child {
+  border: 1px solid green;
+  margin: 1em;
+}
